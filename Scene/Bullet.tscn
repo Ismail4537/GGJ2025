@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkk105t45wu6b"]
+
+[ext_resource type="Texture2D" uid="uid://bdm7w5pkj1b6u" path="res://Sprite/Untitled.png" id="1_a7t56"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_ffx8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuepy"]
+size = Vector2(16, 16)
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_ffx8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a7t56")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nuepy")
+debug_color = Color(0.997644, 0, 0.161315, 0.42)
