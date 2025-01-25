@@ -89,13 +89,14 @@ func _on_timer_timeout() -> void:
 		bubbleCount += 1
 
 func shoot():
+	print("shoot")
 	if isReady :
 		isReady = false
-		const BULLET = preload("res://scenes/Bullet.tscn")
+		const BULLET = preload("res://scenes/new_Bullet.tscn")
 		if (BULLET != null):
-			var dir : float = -1 if $Sprite2D.flip_h == true else 1
+			var dir : float = -1 if $AnimatedSprite2D.flip_h == true else 1
 			var new_bullet = BULLET.instantiate()
-			new_bullet.dir = dir
+			new_bullet.init(dir)
 			new_bullet.global_position = %Muzzle.global_position
 			new_bullet.global_rotation = %Muzzle.global_rotation
 			%Muzzle.add_child(new_bullet)

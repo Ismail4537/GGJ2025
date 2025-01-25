@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgwgk8iuybs5f"]
+
+[ext_resource type="Script" path="res://scripts/new_bullet.gd" id="1_dp5ev"]
+[ext_resource type="Texture2D" uid="uid://uol88upucmwx" path="res://assets/bubble/shoot/GGJ25 shoot3.png" id="2_sb1kp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_voir3"]
+radius = 26.0
+height = 132.0
+
+[node name="New_Bullet" type="CharacterBody2D" groups=["Bullet"]]
+script = ExtResource("1_dp5ev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sb1kp")
+
+[node name="Bullet_Area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet_Area"]
+position = Vector2(-20, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_voir3")
+
+[connection signal="body_entered" from="Bullet_Area" to="." method="_on_bullet_area_body_entered"]

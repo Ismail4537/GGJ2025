@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://wnhs0qasxqic"]
+[gd_scene load_steps=20 format=4 uid="uid://wnhs0qasxqic"]
 
 [ext_resource type="Texture2D" uid="uid://kur7q3wek4q0" path="res://assets/levelGroundTranparan (2).png" id="1_8cyog"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="2_2mtqp"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://47vp5ctpca6s" path="res://assets/foreground2.png" id="7_g7j88"]
 [ext_resource type="Texture2D" uid="uid://cc0wdf84h2eol" path="res://assets/foreground-stalaktit.png" id="7_k7fab"]
 [ext_resource type="PackedScene" uid="uid://b5w6jero736qf" path="res://scenes/player.tscn" id="8_rrs7s"]
-[ext_resource type="Texture2D" uid="uid://ex5mx7olems" path="res://assets/bubble/GGJ25 stack.png" id="11_h1ped"]
+[ext_resource type="PackedScene" uid="uid://f2uti54ha31k" path="res://class/enemy.tscn" id="12_rspg5"]
+[ext_resource type="PackedScene" uid="uid://dgwgk8iuybs5f" path="res://scenes/new_Bullet.tscn" id="14_5h6y1"]
+[ext_resource type="Texture2D" uid="uid://bbniv57a07w82" path="res://assets/lampu.png" id="14_355vy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_saded"]
 texture = ExtResource("1_8cyog")
@@ -120,6 +122,9 @@ scale = Vector2(9152.5, 2240.64)
 texture = SubResource("CanvasTexture_q7xcs")
 centered = false
 
+[node name="CanvasModulate" type="CanvasModulate" parent="LayersNode/NearBackground"]
+color = Color(0.627635, 0.627635, 0.627635, 1)
+
 [node name="NearForeground" type="CanvasLayer" parent="LayersNode"]
 layer = 2
 visible = false
@@ -158,6 +163,10 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.8, 1.8)
 
+[node name="Enemy" parent="." instance=ExtResource("12_rspg5")]
+position = Vector2(2277, 509)
+speed = -150.0
+
 [node name="Player" parent="." instance=ExtResource("8_rrs7s")]
 position = Vector2(394, 660)
 collision_layer = 1
@@ -172,11 +181,27 @@ position_smoothing_enabled = true
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 scale = Vector2(2, 2)
 color = Color(0.785641, 0.785641, 0.785641, 0.509804)
+range_item_cull_mask = 15
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.45098)
-texture = ExtResource("11_h1ped")
-texture_scale = 6.0
+texture = ExtResource("14_355vy")
+texture_scale = 4.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="Player"]
+scale = Vector2(2, 2)
+color = Color(0.552956, 0.552956, 0.552956, 0.392157)
+energy = 0.8
+range_layer_min = -1
+range_layer_max = -1
+range_item_cull_mask = 15
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("14_355vy")
+texture_scale = 1.6
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(10, 0)
-color = Color(0.625597, 0.625597, 0.625597, 1)
+color = Color(0.785641, 0.785641, 0.785641, 1)
+
+[node name="New_Bullet" parent="." instance=ExtResource("14_5h6y1")]
+position = Vector2(505, 525)
