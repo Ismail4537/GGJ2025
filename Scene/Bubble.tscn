@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="Bubble" type="RigidBody2D" groups=["Bubble"]]
 top_level = true
+collision_mask = 3
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_sl2ay")
