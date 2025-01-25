@@ -15,6 +15,4 @@ func _on_area_2d_body_entered(body:Node2D) -> void:
 	$StaticBody2D.get_child(0).set_deferred("disabled", false)
 	$Area2D.get_child(0).set_deferred("disabled", true)
 	caged = true
-	if (get_parent().get_name() == "geyser_trigger"):
-		get_parent().trigger_ammount_true += 1
-	print(caged)
+	print("Enemy Caged")

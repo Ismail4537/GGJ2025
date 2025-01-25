@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bn3kmnyxbvbh"]
+[gd_scene load_steps=15 format=4 uid="uid://bn3kmnyxbvbh"]
 
 [ext_resource type="PackedScene" uid="uid://g6pynf2kpnfd" path="res://scenes/player.tscn" id="1_haweb"]
 [ext_resource type="PackedScene" uid="uid://f2uti54ha31k" path="res://class/enemy.tscn" id="3_7f30n"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bi55dg2a77x05" path="res://scenes/cage.tscn" id="6_ssmgg"]
 [ext_resource type="PackedScene" uid="uid://e2gssssrepcx" path="res://scenes/geyser.tscn" id="7_oc0od"]
 [ext_resource type="PackedScene" uid="uid://dp3a7suw5yaqs" path="res://scenes/geyser_trigger.tscn" id="8_f60mf"]
+[ext_resource type="PackedScene" uid="uid://p4wwr0bj2o54" path="res://scenes/button_press.tscn" id="10_wafq6"]
+[ext_resource type="PackedScene" uid="uid://bg65mq1x6tsrn" path="res://scenes/button_held.tscn" id="11_ilkcp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qersm"]
 resource_name = "Ground"
@@ -64,6 +66,14 @@ position = Vector2(16, 32)
 
 [node name="Cage2" parent="Geyser/GeyserTrigger" groups=["cage"] instance=ExtResource("6_ssmgg")]
 position = Vector2(144, 32)
+
+[node name="Button_press" parent="Geyser/GeyserTrigger" instance=ExtResource("10_wafq6")]
+position = Vector2(480, 16)
+scale = Vector2(0.333333, 0.333333)
+
+[node name="Button_held" parent="Geyser/GeyserTrigger" instance=ExtResource("11_ilkcp")]
+position = Vector2(288, 32)
+scale = Vector2(0.333333, 0.333333)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_7f30n")]
 position = Vector2(-360, 312)

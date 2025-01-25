@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			if child.pressed == true:
 				trigger_ammount_true += 1
 		if child.is_in_group("button_held"):
-			if child.pressed == false:
+			if child.pressed == true:
 				trigger_ammount_true += 1
 
 func open_geyser():
