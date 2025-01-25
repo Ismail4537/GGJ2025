@@ -70,7 +70,7 @@ func Gravity(delta: float):
 		velocity += get_gravity() * delta
 
 func _on_timer_timeout() -> void:
-	const BUBBLE = preload("res://scenes/Bubble.tscn")
+	const BUBBLE = preload("res://scenes/Bubble.tscn") # Ensure this path is correct and the file exists
 	if (BUBBLE != null):
 		var new_bubble = BUBBLE.instantiate()
 		new_bubble.position.x = %SpBubble.global_position.x
