@@ -6,14 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djk7t"]
 size = Vector2(16, 16)
 
-[node name="Breakable" type="RigidBody2D" groups=["ground"]]
+[node name="Breakable" type="StaticBody2D" groups=["ground"]]
 collision_layer = 16
-can_sleep = false
-lock_rotation = true
 script = ExtResource("1_lljv8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
 texture = ExtResource("2_qlyt7")
 hframes = 2
 vframes = 2
@@ -21,5 +18,4 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["ground"]]
 position = Vector2(-2.38419e-07, 0)
-scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_djk7t")

@@ -6,6 +6,7 @@ var isFacing
 var bubble = 8
 var bubbleCount = 0
 var isOnGround : bool
+var thereIsCeiling : bool = false
 var isReady : bool = true
 var invicible : bool = false
 var knocked : bool = false
@@ -15,25 +16,30 @@ var itCameFrom
 @onready var invicibilityCooldown := $CDInvicibility as Timer
 @onready var shootCooldown := $CDShoot as Timer
 @onready var detectBubble := $DetectBubble as RayCast2D
-var colide : Node2D
+@onready var detectCeiling := $DetectCeiling as RayCast2D
 
 func _physics_process(delta: float) -> void:
 	Gravity(delta)
 	KeyInputs()
 	if is_on_floor():
 		knocked = false
-	colide = detectBubble.get_collider()
+	var colide = detectBubble.get_collider()
 	if colide != null :
 		if is_on_floor() and colide.is_in_group("ground"):
 			isOnGround = true
 			bubbleCount = 0
 		else :
 			isOnGround = false
-	print(str(is_on_floor()) +" "+ str(isOnGround))
+	var ceiling = detectCeiling.get_collider()
+	if ceiling != null :
+		if ceiling.is_in_group("ground"):
+			thereIsCeiling = true
+	else :
+		thereIsCeiling = false
 	
 func KeyInputs():
 	Movement()
-	if (Input.is_action_just_pressed("addBubble") and is_on_floor() and !is_on_ceiling() and bubbleCount < 6):
+	if (Input.is_action_just_pressed("addBubble") and is_on_floor() and !thereIsCeiling and bubbleCount < 6):
 		makeBubble()
 	if Input.is_action_just_pressed("shootBubble"):
 		shoot()
