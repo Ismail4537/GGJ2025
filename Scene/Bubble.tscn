@@ -6,8 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djk7t"]
 size = Vector2(16, 16)
 
-[node name="Bubble" type="RigidBody2D" groups=["Bubble"]]
+[node name="Bubble" type="RigidBody2D" groups=["bubble"]]
 top_level = true
+collision_layer = 8
+collision_mask = 11
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_sl2ay")
@@ -23,9 +25,3 @@ frame = 2
 position = Vector2(-2.38419e-07, 0)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_djk7t")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://g6pynf2kpnfd"]
+[gd_scene load_steps=6 format=3 uid="uid://g6pynf2kpnfd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uvcr7"]
 [ext_resource type="Texture2D" uid="uid://cvnchg8dfmydf" path="res://icon.svg" id="2_4xaey"]
@@ -6,11 +6,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uccvo"]
 radius = 64.0078
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tujqj"]
+size = Vector2(64, 128)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffmho"]
-size = Vector2(128, 128)
+size = Vector2(64, 128)
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 9
 slide_on_ceiling = false
 platform_floor_layers = 4294967289
 script = ExtResource("1_uvcr7")
@@ -28,16 +32,40 @@ unique_name_in_owner = true
 wait_time = 0.05
 one_shot = true
 
+[node name="CDShoot" type="Timer" parent="."]
+wait_time = 0.8
+
+[node name="CDInvicibility" type="Timer" parent="."]
+one_shot = true
+
 [node name="Muzzle" type="Marker2D" parent="." groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(64, 0)
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBoxRight" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxRight"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_tujqj")
+debug_color = Color(0.823595, 0.399637, 0, 0.42)
+
+[node name="HitBoxLeft" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxLeft"]
+position = Vector2(-32, 0)
 shape = SubResource("RectangleShape2D_ffmho")
 debug_color = Color(0.99474, 0.0656026, 1.15514e-06, 0.42)
 
+[node name="DetectBubble" type="RayCast2D" parent="."]
+target_position = Vector2(0, 78)
+collision_mask = 9
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CDShoot" to="." method="_on_cd_shoot_timeout"]
+[connection signal="timeout" from="CDInvicibility" to="." method="_on_cd_invicibility_timeout"]
+[connection signal="body_entered" from="HitBoxRight" to="." method="_on_hit_box_right_body_entered"]
+[connection signal="body_entered" from="HitBoxLeft" to="." method="_on_hit_box_left_body_entered"]

@@ -11,28 +11,14 @@ config_version=5
 [application]
 
 config/name="GGJ2025"
-<<<<<<< HEAD
-run/main_scene="res://scenes/main_menu.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
-
-[display]
-
-window/size/viewport_width=512
-window/size/viewport_height=288
-window/size/mode=2
-window/stretch/mode="canvas_items"
-
-[layer_names]
-
-2d_physics/layer_1="main_character"
-2d_physics/layer_2="ground"
-2d_physics/layer_3="enemies"
-2d_physics/layer_4="objects"
-=======
 run/main_scene="res://Scene/char_test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+bubble="bubble"
+ground="as"
 
 [input]
 
@@ -53,7 +39,7 @@ shootBubble={
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
->>>>>>> origin/Main-character
+2d_physics/layer_4="Bubble"
 
 [rendering]
 
