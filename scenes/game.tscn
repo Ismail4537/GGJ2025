@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://wnhs0qasxqic"]
+[gd_scene load_steps=18 format=4 uid="uid://wnhs0qasxqic"]
 
 [ext_resource type="Texture2D" uid="uid://kur7q3wek4q0" path="res://assets/levelGroundTranparan (2).png" id="1_8cyog"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="2_2mtqp"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dg4uqkyv85c7s" path="res://assets/background1.png" id="3_r44sg"]
 [ext_resource type="Shader" path="res://scripts/near_background_blur.gdshader" id="7_1j6sx"]
 [ext_resource type="Shader" path="res://scripts/near_background.gdshader" id="7_42apc"]
+[ext_resource type="Texture2D" uid="uid://47vp5ctpca6s" path="res://assets/foreground2.png" id="7_g7j88"]
 [ext_resource type="Texture2D" uid="uid://cc0wdf84h2eol" path="res://assets/foreground-stalaktit.png" id="7_k7fab"]
 [ext_resource type="PackedScene" uid="uid://b5w6jero736qf" path="res://scenes/player.tscn" id="8_rrs7s"]
+[ext_resource type="Texture2D" uid="uid://ex5mx7olems" path="res://assets/bubble/GGJ25 stack.png" id="11_h1ped"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_saded"]
 texture = ExtResource("1_8cyog")
@@ -118,10 +120,23 @@ scale = Vector2(9152.5, 2240.64)
 texture = SubResource("CanvasTexture_q7xcs")
 centered = false
 
-[node name="Foreground" type="CanvasLayer" parent="LayersNode"]
+[node name="NearForeground" type="CanvasLayer" parent="LayersNode"]
 layer = 2
+visible = false
 follow_viewport_enabled = true
-follow_viewport_scale = 1.1
+follow_viewport_scale = 1.05
+
+[node name="Sprite2D" type="Sprite2D" parent="LayersNode/NearForeground"]
+self_modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+position = Vector2(-76.3637, 126.364)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("7_g7j88")
+centered = false
+
+[node name="Foreground" type="CanvasLayer" parent="LayersNode"]
+layer = 3
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
 
 [node name="Sprite2D" type="Sprite2D" parent="LayersNode/Foreground"]
 self_modulate = Color(0.212305, 0.212305, 0.212305, 1)
@@ -144,7 +159,7 @@ grow_vertical = 2
 scale = Vector2(1.8, 1.8)
 
 [node name="Player" parent="." instance=ExtResource("8_rrs7s")]
-position = Vector2(384, 660)
+position = Vector2(394, 660)
 collision_layer = 1
 collision_mask = 63
 metadata/_edit_group_ = true
@@ -153,3 +168,15 @@ metadata/_edit_group_ = true
 offset = Vector2(0, -120)
 limit_left = 0
 position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+scale = Vector2(2, 2)
+color = Color(0.785641, 0.785641, 0.785641, 0.509804)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("11_h1ped")
+texture_scale = 6.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(10, 0)
+color = Color(0.625597, 0.625597, 0.625597, 1)

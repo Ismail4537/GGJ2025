@@ -61,7 +61,7 @@ friction = 0.1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rolvf")
 animation = &"walking"
-frame_progress = 0.471038
+frame_progress = 0.343811
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uccvo")

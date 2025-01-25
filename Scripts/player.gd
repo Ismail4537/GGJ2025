@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 0
 @export var maxSpeed = 0
 @export var friction = 0.05
+@export var gravity = 2500.0
 
 var isFacing
 var bubble = 8
@@ -21,7 +22,9 @@ var itCameFrom
 @onready var detectCeiling := $DetectCeiling as RayCast2D
 
 func _physics_process(delta: float) -> void:
-	Gravity(delta) 
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	
 	KeyInputs()
 	if is_on_floor():
 		knocked = false
@@ -73,9 +76,6 @@ func makeBubble():
 	global_position.y -= 50
 	bubbleTimer.start()
 
-func Gravity(delta: float):
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
 func _on_timer_timeout() -> void:
 	const BUBBLE = preload("res://scenes/Bubble.tscn") # Ensure this path is correct and the file exists

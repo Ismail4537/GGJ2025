@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dahtybif33pm7"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_bpvu6"]
-[ext_resource type="Texture2D" uid="uid://d06kif7kaned1" path="res://assets/menu_background.jpg" id="1_c2a11"]
+[ext_resource type="Texture2D" uid="uid://b10t2jovqea6l" path="res://assets/mainMenu.png" id="2_b6pi2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mb0jq"]
-texture = ExtResource("1_c2a11")
+texture = ExtResource("2_b6pi2")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
