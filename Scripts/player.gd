@@ -3,19 +3,22 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var isFacing
-var bubble = 5
-var bubbleCount : Array[Node] 
+var bubble = 8
 
 @onready var bubbleTimer := $Timer as Timer
 
 func _physics_process(delta: float) -> void:
 	Gravity(delta)
+	KeyInputs()
+
+func KeyInputs():
 	Movement()
 	if (Input.is_action_just_pressed("addBubble") and is_on_floor() and !is_on_ceiling() and bubble > 0):
 		makeBubble()
 		bubble -= 1
-	if (Input.is_action_just_pressed("shootBubble")):
+	if (Input.is_action_just_pressed("shootBubble") and bubble > 0):
 		shoot()
+		bubble -= 1
 
 func Movement():
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -61,3 +64,9 @@ func shoot():
 		new_bullet.global_rotation = %Muzzle.global_rotation
 		%Muzzle.add_child(new_bullet)
 		print("pew")
+
+func addBuble():
+	bubble += 3
+
+func take_damage():
+	bubble -= 1

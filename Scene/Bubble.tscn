@@ -25,7 +25,7 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_djk7t")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
