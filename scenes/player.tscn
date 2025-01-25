@@ -1,7 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://g6pynf2kpnfd"]
+[gd_scene load_steps=12 format=3 uid="uid://b5w6jero736qf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uvcr7"]
-[ext_resource type="Texture2D" uid="uid://cvnchg8dfmydf" path="res://icon.svg" id="2_4xaey"]
+[ext_resource type="Texture2D" uid="uid://c8drtmya71xcd" path="res://assets/jamal/idle/GGJ25 jamal i1.png" id="2_bo1fw"]
+[ext_resource type="Texture2D" uid="uid://d060hedgrtw7y" path="res://assets/jamal/idle/GGJ25 jamal i2.png" id="3_g4843"]
+[ext_resource type="Texture2D" uid="uid://dws35mp5yhx1y" path="res://assets/jamal/walking/GGJ25 jamal w1.png" id="4_0bwhm"]
+[ext_resource type="Texture2D" uid="uid://1c07yrbwohmi" path="res://assets/jamal/walking/GGJ25 jamal w2.png" id="5_1h11g"]
+[ext_resource type="Texture2D" uid="uid://cp80gmqxe2ir8" path="res://assets/jamal/walking/GGJ25 jamal w3.png" id="6_lt36n"]
+[ext_resource type="Texture2D" uid="uid://bki88bu8v74if" path="res://assets/jamal/walking/GGJ25 jamal w4.png" id="7_r6eqc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rolvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bo1fw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g4843")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0bwhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1h11g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lt36n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r6eqc")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uccvo"]
 radius = 64.0078
@@ -18,9 +54,14 @@ collision_mask = 57
 slide_on_ceiling = false
 platform_floor_layers = 4294967289
 script = ExtResource("1_uvcr7")
+speed = 1000
+maxSpeed = 600
+friction = 0.1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4xaey")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rolvf")
+animation = &"walking"
+frame_progress = 0.471038
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uccvo")
@@ -67,6 +108,8 @@ collision_mask = 25
 [node name="DetectBubble" type="RayCast2D" parent="."]
 target_position = Vector2(0, 78)
 collision_mask = 25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CDShoot" to="." method="_on_cd_shoot_timeout"]

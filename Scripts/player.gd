@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
+@export var speed = 0
+@export var maxSpeed = 0
+@export var friction = 0.05
+
 var isFacing
 var bubble = 8
 var bubbleCount = 0
@@ -19,7 +21,7 @@ var itCameFrom
 @onready var detectCeiling := $DetectCeiling as RayCast2D
 
 func _physics_process(delta: float) -> void:
-	Gravity(delta)
+	Gravity(delta) 
 	KeyInputs()
 	if is_on_floor():
 		knocked = false
@@ -37,29 +39,35 @@ func _physics_process(delta: float) -> void:
 	else :
 		thereIsCeiling = false
 	
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if !knocked:
+		if direction:
+			velocity.x += direction * speed * delta
+			velocity.x = clamp(velocity.x, -maxSpeed, maxSpeed)
+
+			if direction != 0:
+				isFacing = direction
+				if isFacing > 0:
+					$AnimatedSprite2D.flip_h = false
+					$AnimatedSprite2D.play("walking")
+					%Muzzle.position.x = 64
+				else:
+					$AnimatedSprite2D.flip_h = true
+					$AnimatedSprite2D.play("walking")
+					%Muzzle.position.x = -64
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed * delta)
+			$AnimatedSprite2D.play("idle")
+
+		move_and_slide()
+
+
 func KeyInputs():
-	Movement()
+	# Movement(delta)
 	if (Input.is_action_just_pressed("addBubble") and is_on_floor() and !thereIsCeiling and bubbleCount < 6):
 		makeBubble()
 	if Input.is_action_just_pressed("shootBubble"):
 		shoot()
-
-func Movement():
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if !knocked:
-		if direction:
-			velocity.x = direction * SPEED
-			if (direction > 0 or direction < 0):
-				isFacing = direction
-				if (isFacing > 0):
-					$Sprite2D.flip_h = false
-					%Muzzle.position.x = 64
-				else:
-					$Sprite2D.flip_h = true
-					%Muzzle.position.x = -64
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
 
 func makeBubble():
 	global_position.y -= 50
