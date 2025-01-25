@@ -17,8 +17,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5w1d"]
 size = Vector2(128, 128)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
+collision_mask = 17
 script = ExtResource("1_2u33u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

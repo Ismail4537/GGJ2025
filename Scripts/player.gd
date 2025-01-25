@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 			bubbleCount = 0
 		else :
 			isOnGround = false
-	print(invicible)
+	print(str(is_on_floor()) +" "+ str(isOnGround))
 	
 func KeyInputs():
 	Movement()
@@ -64,7 +64,7 @@ func Gravity(delta: float):
 		velocity += get_gravity() * delta
 
 func _on_timer_timeout() -> void:
-	const BUBBLE = preload("res://Scene/Bubble.tscn")
+	const BUBBLE = preload("res://scenes/Bubble.tscn")
 	if (BUBBLE != null):
 		var new_bubble = BUBBLE.instantiate()
 		new_bubble.position.x = %SpBubble.global_position.x
@@ -77,7 +77,7 @@ func _on_timer_timeout() -> void:
 func shoot():
 	if isReady :
 		isReady = false
-		const BULLET = preload("res://Scene/Bullet.tscn")
+		const BULLET = preload("res://scenes/Bullet.tscn")
 		if (BULLET != null):
 			var dir : float = -1 if $Sprite2D.flip_h == true else 1
 			var new_bullet = BULLET.instantiate()
@@ -89,7 +89,6 @@ func shoot():
 
 func addBuble():
 	bubble += 3
-	print("Bubble added")
 
 func player_take_damage(dir : int):
 	if !invicible or !knocked:
@@ -113,5 +112,16 @@ func _on_hit_box_right_body_entered(body: Node2D) -> void:
 
 func _on_hit_box_left_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
+		itCameFrom = 1
+		player_take_damage(itCameFrom)
+
+func _on_hit_box_right_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		itCameFrom = -1
+		player_take_damage(itCameFrom)
+
+
+func _on_hit_box_left_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
 		itCameFrom = 1
 		player_take_damage(itCameFrom)
