@@ -36,7 +36,6 @@ func _on_hit_box_area_entered(area:Area2D) -> void:
 func take_damage():
 	queue_free()
 
-
 func _on_hit_box_body_entered(body:Node2D) -> void:
 	if body.get_parent().has_method("take_damage"):
 		body.get_parent().take_damage()

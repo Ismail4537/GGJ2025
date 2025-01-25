@@ -126,7 +126,6 @@ func _on_hit_box_right_area_entered(area: Area2D) -> void:
 		itCameFrom = -1
 		player_take_damage(itCameFrom)
 
-
 func _on_hit_box_left_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		itCameFrom = 1
