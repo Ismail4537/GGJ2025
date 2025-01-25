@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=4 uid="uid://bn3kmnyxbvbh"]
+
+[ext_resource type="PackedScene" uid="uid://g6pynf2kpnfd" path="res://scenes/player.tscn" id="1_haweb"]
+[ext_resource type="PackedScene" uid="uid://f2uti54ha31k" path="res://class/enemy.tscn" id="3_7f30n"]
+[ext_resource type="Texture2D" uid="uid://bdm7w5pkj1b6u" path="res://Sprite/Untitled.png" id="3_hcqux"]
+[ext_resource type="PackedScene" uid="uid://b4hhpn67rekkq" path="res://scenes/Berakable.tscn" id="4_xd4qi"]
+[ext_resource type="PackedScene" uid="uid://je7fntrlvm6a" path="res://scenes/bridge.tscn" id="5_qonpx"]
+[ext_resource type="PackedScene" uid="uid://cgijjmevne531" path="res://scenes/spike.tscn" id="6_0p6wf"]
+[ext_resource type="PackedScene" uid="uid://bi55dg2a77x05" path="res://scenes/cage.tscn" id="6_ssmgg"]
+[ext_resource type="PackedScene" uid="uid://e2gssssrepcx" path="res://scenes/geyser.tscn" id="7_oc0od"]
+[ext_resource type="PackedScene" uid="uid://dp3a7suw5yaqs" path="res://scenes/geyser_trigger.tscn" id="8_f60mf"]
+[ext_resource type="PackedScene" uid="uid://p4wwr0bj2o54" path="res://scenes/button_press.tscn" id="10_wafq6"]
+[ext_resource type="PackedScene" uid="uid://bg65mq1x6tsrn" path="res://scenes/button_held.tscn" id="11_ilkcp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qersm"]
+resource_name = "Ground"
+texture = ExtResource("3_hcqux")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_g8jsg"]
+scenes/4/scene = ExtResource("6_0p6wf")
+scenes/5/scene = ExtResource("5_qonpx")
+scenes/6/scene = ExtResource("4_xd4qi")
+
+[sub_resource type="TileSet" id="TileSet_8l0ew"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qersm")
+sources/1 = SubResource("TileSetScenesCollectionSource_g8jsg")
+
+[node name="CharTest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_haweb")]
+position = Vector2(588, 444)
+scale = Vector2(0.37, 0.37)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." groups=["ground"]]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAD7/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAD5/wEAAAAAAAAAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAABAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAEAAAAIAAsAAAABAAEAAAAJAAsAAAABAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAXAAsAAAAAAAAAAAAPAAoAAAAAAAAAAAAOAAoAAAAAAAEAAAAaAAsAAAAAAAAAAAAbAAsAAAAAAAAAAAAcAAsAAAAAAAAAAAD+/wsAAAAAAAAAAAAXAAoAAQAAAAAABQAIAAoAAQAAAAAABgATAAoAAQAAAAAABAD9/wsAAAAAAAAAAAD8/wsAAAAAAAAAAAD7/wsAAAAAAAAAAAD6/wsAAAAAAAAAAAD5/wsAAAAAAAAAAAD4/wsAAAAAAAAAAAD3/wsAAAAAAAAAAAD2/wsAAAAAAAAAAAD1/wsAAAAAAAAAAAD0/wsAAAAAAAAAAADz/wsAAAAAAAAAAADy/wsAAAAAAAAAAADx/wsAAAAAAAAAAADw/wsAAAAAAAAAAAD7/woAAAAAAAAAAAD7/wkAAAAAAAAAAAD6/wkAAAAAAAAAAADy/wkAAAAAAAAAAADx/wkAAAAAAAAAAADx/woAAAAAAAAAAADv/wsAAAAAAAAAAADu/wsAAAAAAAAAAADt/wsAAAAAAAAAAADs/wsAAAAAAAAAAADr/wsAAAAAAAAAAADq/wsAAAAAAAAAAADp/wsAAAAAAAAAAADo/wsAAAAAAAAAAADr/wUAAAAAAAAAAADt/wEAAAAAAAAAAADs/wEAAAAAAAAAAADu/wEAAAAAAAAAAADv/wEAAAAAAAAAAADw/wEAAAAAAAAAAADx/wEAAAAAAAAAAADy/wEAAAAAAAAAAADz/wEAAAAAAAAAAAD0/wEAAAAAAAAAAAD1/wEAAAAAAAAAAAD2/wEAAAAAAAAAAAD3/wEAAAAAAAAAAAD4/wEAAAAAAAAAAADx/wQAAAAAAAAAAADx/wMAAAAAAAAAAADx/wIAAAAAAAAAAAD0/wcAAQAAAAAABgD4/wcAAQAAAAAABgA=")
+tile_set = SubResource("TileSet_8l0ew")
+
+[node name="Enemy" parent="." instance=ExtResource("3_7f30n")]
+position = Vector2(264, 504)
+scale = Vector2(0.37, 0.37)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_7f30n")]
+position = Vector2(-552, 312)
+scale = Vector2(0.37, 0.37)
+
+[node name="Geyser" parent="." instance=ExtResource("7_oc0od")]
+position = Vector2(-696, 408)
+
+[node name="GeyserTrigger" parent="Geyser" instance=ExtResource("8_f60mf")]
+
+[node name="Cage" parent="Geyser/GeyserTrigger" groups=["cage"] instance=ExtResource("6_ssmgg")]
+position = Vector2(16, 32)
+
+[node name="Cage2" parent="Geyser/GeyserTrigger" groups=["cage"] instance=ExtResource("6_ssmgg")]
+position = Vector2(144, 32)
+
+[node name="Button_press" parent="Geyser/GeyserTrigger" instance=ExtResource("10_wafq6")]
+position = Vector2(480, 16)
+scale = Vector2(0.333333, 0.333333)
+
+[node name="Button_held" parent="Geyser/GeyserTrigger" instance=ExtResource("11_ilkcp")]
+position = Vector2(288, 32)
+scale = Vector2(0.333333, 0.333333)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_7f30n")]
+position = Vector2(-360, 312)
+scale = Vector2(0.37, 0.37)
+
+[connection signal="body_entered" from="TileMapLayer/Spike" to="TileMapLayer/Spike" method="_on_body_entered"]

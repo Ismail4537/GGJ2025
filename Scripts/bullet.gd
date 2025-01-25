@@ -1,7 +1,7 @@
 extends Area2D
 
-const SPEED = 250
-const RANGE = 180
+const SPEED = 500
+const RANGE = 210
 var travel_dist = 0
 var dir = 1
 

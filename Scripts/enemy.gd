@@ -5,7 +5,6 @@ extends CharacterBody2D
 
 var facing_right = false
 
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -28,3 +27,18 @@ func flip() -> void:
 	else:
 		speed = abs(speed) * -1
 
+func _on_hit_box_area_entered(area:Area2D) -> void:
+	if area.get_parent().has_method("take_damage"):
+		area.get_parent().take_damage()
+	elif area.has_method("take_damage"):
+		area.take_damage()
+
+func take_damage():
+	queue_free()
+
+
+func _on_hit_box_body_entered(body:Node2D) -> void:
+	if body.get_parent().has_method("take_damage"):
+		body.get_parent().take_damage()
+	elif body.has_method("take_damage"):
+		body.take_damage()

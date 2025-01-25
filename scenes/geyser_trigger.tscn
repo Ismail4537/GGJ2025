@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp3a7suw5yaqs"]
+
+[ext_resource type="Script" path="res://Scripts/geyser_trigger.gd" id="1_t132i"]
+
+[node name="GeyserTrigger" type="Node2D"]
+script = ExtResource("1_t132i")
