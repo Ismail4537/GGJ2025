@@ -4,6 +4,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var isFacing
 var bubble = 5
+var bubbleCount : Array[Node] 
+
 @onready var bubbleTimer := $Timer as Timer
 
 func _physics_process(delta: float) -> void:
