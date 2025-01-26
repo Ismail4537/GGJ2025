@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dahtybif33pm7"]
+[gd_scene load_steps=55 format=3 uid="uid://dahtybif33pm7"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_bpvu6"]
 [ext_resource type="Texture2D" uid="uid://5485i11ejh8t" path="res://assets/animasion/MainMenu-1.png" id="2_lxs7d"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://dxl6suj8icqhf" path="res://assets/animasion/MainMenu-49.png" id="50_e0hbj"]
 [ext_resource type="Texture2D" uid="uid://bvlcwlruecasv" path="res://assets/animasion/MainMenu-50.png" id="51_0pqx7"]
 [ext_resource type="Texture2D" uid="uid://bdiivk18ry57y" path="res://assets/GGJ25 title.png" id="52_qjdem"]
+[ext_resource type="AudioStream" uid="uid://crh6f42t0cyct" path="res://assets/bgm/lagu intro.mp3" id="53_saf4i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_evldd"]
 animations = [{
@@ -270,6 +271,10 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../StartButton")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
+
+[node name="MenuAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("53_saf4i")
+parameters/looping = true
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
