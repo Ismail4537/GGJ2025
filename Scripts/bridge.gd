@@ -1,6 +1,10 @@
 extends StaticBody2D
 var health = 3
 var justMoved : bool = false
+
+func _ready():
+	$Sprite2D.scale = Vector2(0.05, 0.065)
+
 func take_damage():
 	if justMoved:
 		return

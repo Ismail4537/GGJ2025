@@ -25,10 +25,11 @@ func _physics_process(delta: float) -> void:
 	# 	queue_free()
 
 	move_and_slide()
+	
 
 
 func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
-		print("Enemy hit")
-		body.queue_free()
+		if body.has_method("take_damage"):
+			body.take_damage()
 		self.queue_free()

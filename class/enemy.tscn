@@ -35,7 +35,7 @@ size = Vector2(128, 128)
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.37, 0.37)
 collision_layer = 4
-collision_mask = 59
+collision_mask = 2
 script = ExtResource("1_2u33u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -49,13 +49,13 @@ shape = SubResource("RectangleShape2D_wlqsc")
 [node name="HitBox" type="Area2D" parent="."]
 visible = false
 collision_layer = 4
-collision_mask = 10
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_u5w1d")
 debug_color = Color(0.999117, 0, 0.123094, 0.42)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-64, 0)
-target_position = Vector2(0, 75)
+position = Vector2(-89.1892, 0)
+target_position = Vector2(0, 78.3784)
 collision_mask = 2
