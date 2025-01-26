@@ -18,16 +18,22 @@ config/icon="res://icon.svg"
 
 [display]
 
+<<<<<<< HEAD
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+=======
+bubble="bubble"
+ground="as"
+Enemy="e"
+>>>>>>> eb030d69aa2b76e53cb75acadb9c4bf1f06f8335
 
 [input]
 
 addBubble={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 shootBubble={
@@ -38,6 +44,7 @@ shootBubble={
 
 [layer_names]
 
+<<<<<<< HEAD
 2d_physics/layer_1="main_character"
 2d_physics/layer_2="ground"
 2d_physics/layer_3="enemies"
@@ -46,6 +53,14 @@ shootBubble={
 [physics]
 
 2d/default_gravity=1080.0
+=======
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Bubble"
+2d_physics/layer_5="Interactable"
+2d_physics/layer_6="Button"
+>>>>>>> eb030d69aa2b76e53cb75acadb9c4bf1f06f8335
 
 [rendering]
 

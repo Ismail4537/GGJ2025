@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dpw25braeoj68"]
 
-[ext_resource type="Script" path="res://Scripts/bridge.gd" id="1_7j65l"]
+[ext_resource type="Script" path="res://scripts/bridge.gd" id="1_7j65l"]
 [ext_resource type="Texture2D" uid="uid://bdm7w5pkj1b6u" path="res://Sprite/Untitled.png" id="2_vp27x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu1eq"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi55dg2a77x05"]
 
 [ext_resource type="Texture2D" uid="uid://bdm7w5pkj1b6u" path="res://Sprite/Untitled.png" id="1_26inb"]
-[ext_resource type="Script" path="res://Scripts/cage.gd" id="1_l5qce"]
+[ext_resource type="Script" path="res://scripts/cage.gd" id="1_l5qce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6la7"]
 size = Vector2(10, 10)

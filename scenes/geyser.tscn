@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://e2gssssrepcx"]
 
-[ext_resource type="Script" path="res://Scripts/geyser.gd" id="1_b7en8"]
+[ext_resource type="Script" path="res://scripts/geyser.gd" id="1_b7en8"]
 [ext_resource type="Texture2D" uid="uid://bdm7w5pkj1b6u" path="res://Sprite/Untitled.png" id="1_qlqh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4jqf"]

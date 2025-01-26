@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_body_entered(body:Node2D) -> void:
-	print(body.get_groups())
+	if pressed : return
 	if body.is_in_group("Player") or body.is_in_group("Enemy"):
 		pressed = true
 		print("Button pressed")
