@@ -49,8 +49,8 @@ size = Vector2(64, 128)
 size = Vector2(64, 128)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 2
-collision_mask = 57
+scale = Vector2(0.75, 0.75)
+collision_mask = 2
 slide_on_ceiling = false
 platform_floor_layers = 4294967289
 script = ExtResource("1_uvcr7")
@@ -60,8 +60,8 @@ friction = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rolvf")
-animation = &"walking"
-frame_progress = 0.343811
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uccvo")
@@ -79,12 +79,11 @@ wait_time = 0.8
 [node name="CDInvicibility" type="Timer" parent="."]
 one_shot = true
 
-[node name="Muzzle" type="Marker2D" parent="." groups=["Player"]]
+[node name="Muzzle" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(64, 0)
 
 [node name="HitBoxRight" type="Area2D" parent="."]
-collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxRight"]
@@ -93,7 +92,6 @@ shape = SubResource("RectangleShape2D_tujqj")
 debug_color = Color(0.823595, 0.399637, 0, 0.42)
 
 [node name="HitBoxLeft" type="Area2D" parent="."]
-collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxLeft"]
@@ -101,13 +99,13 @@ position = Vector2(-32, 0)
 shape = SubResource("RectangleShape2D_ffmho")
 debug_color = Color(0.99474, 0.0656026, 1.15514e-06, 0.42)
 
-[node name="DetectCeiling" type="RayCast2D" parent="." groups=["Player"]]
-target_position = Vector2(0, -99)
-collision_mask = 25
+[node name="DetectCeiling" type="RayCast2D" parent="."]
+target_position = Vector2(0, -106.667)
+collision_mask = 2
 
 [node name="DetectBubble" type="RayCast2D" parent="."]
 target_position = Vector2(0, 78)
-collision_mask = 25
+collision_mask = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CDShoot" to="." method="_on_cd_shoot_timeout"]
