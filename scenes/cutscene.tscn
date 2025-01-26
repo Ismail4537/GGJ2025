@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bu4baavttw326"]
+[gd_scene load_steps=28 format=3 uid="uid://bu4baavttw326"]
 
 [ext_resource type="Texture2D" uid="uid://c87q3cit6ymck" path="res://assets/cutscene/GGJ25 cutscene_BG.png" id="1_03r1s"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_s5pbf"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b7u4uodydt1lw" path="res://assets/cutscene/GGJ25 cutscene_4_2.2.png" id="15_vwawg"]
 [ext_resource type="Texture2D" uid="uid://ctvjueipuhmhi" path="res://assets/cutscene/GGJ25 cutscene_5.1.png" id="16_i7ku0"]
 [ext_resource type="Texture2D" uid="uid://c87xbjwcgvq2u" path="res://assets/cutscene/GGJ25 cutscene_5.2.png" id="17_564u0"]
+[ext_resource type="AudioStream" uid="uid://crh6f42t0cyct" path="res://assets/bgm/lagu intro.mp3" id="19_wucwh"]
+[ext_resource type="AudioStream" uid="uid://dsyfjcbc327kg" path="res://assets/sfx/page-flip.mp3" id="19_xksog"]
 
 [sub_resource type="Animation" id="Animation_c24bt"]
 length = 0.001
@@ -971,3 +973,14 @@ text = "Continue"
 libraries = {
 "": SubResource("AnimationLibrary_qcrij")
 }
+
+[node name="CutsceneAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_wucwh")
+volume_db = -2.0
+parameters/looping = true
+
+[node name="ChangePage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_xksog")
+volume_db = 10.0
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

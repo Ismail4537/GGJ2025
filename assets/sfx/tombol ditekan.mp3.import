@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpw1fy8k723wb"
+path="res://.godot/imported/tombol ditekan.mp3-78b1b675777689b0bfb7376c705d21ae.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/tombol ditekan.mp3"
+dest_files=["res://.godot/imported/tombol ditekan.mp3-78b1b675777689b0bfb7376c705d21ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

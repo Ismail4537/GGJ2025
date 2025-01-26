@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=4 uid="uid://wnhs0qasxqic"]
+[gd_scene load_steps=20 format=4 uid="uid://wnhs0qasxqic"]
 
 [ext_resource type="Texture2D" uid="uid://kur7q3wek4q0" path="res://assets/levelGroundTranparan (2).png" id="1_8cyog"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_gm47t"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="2_2mtqp"]
 [ext_resource type="PackedScene" uid="uid://dpw25braeoj68" path="res://scenes/bridge.tscn" id="2_li747"]
 [ext_resource type="Texture2D" uid="uid://d2jmloqptq40r" path="res://assets/background2.png" id="3_2lfgk"]
@@ -9,6 +10,7 @@
 [ext_resource type="Shader" path="res://scripts/near_background.gdshader" id="7_42apc"]
 [ext_resource type="Texture2D" uid="uid://cc0wdf84h2eol" path="res://assets/foreground-stalaktit.png" id="7_k7fab"]
 [ext_resource type="PackedScene" uid="uid://b5w6jero736qf" path="res://scenes/player.tscn" id="8_rrs7s"]
+[ext_resource type="AudioStream" uid="uid://c40sb42v68nnp" path="res://assets/bgm/BGM ingame.mp3" id="12_apxtp"]
 [ext_resource type="PackedScene" uid="uid://f2uti54ha31k" path="res://class/enemy.tscn" id="12_rspg5"]
 [ext_resource type="Texture2D" uid="uid://bbniv57a07w82" path="res://assets/lampu.png" id="14_355vy"]
 
@@ -56,6 +58,7 @@ shader = ExtResource("7_42apc")
 shader_parameter/lod = 0.0
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_gm47t")
 
 [node name="Tilemap" type="Node2D" parent="."]
 
@@ -256,3 +259,7 @@ texture_scale = 1.6
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(10, 0)
 color = Color(0.785641, 0.785641, 0.785641, 1)
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_apxtp")
+parameters/looping = true

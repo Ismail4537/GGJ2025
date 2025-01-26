@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqekf4xbjnmvg"
+path="res://.godot/imported/gelembung pecah.mp3-c0655d6754f07124540264f091ce2216.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/gelembung pecah.mp3"
+dest_files=["res://.godot/imported/gelembung pecah.mp3-c0655d6754f07124540264f091ce2216.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

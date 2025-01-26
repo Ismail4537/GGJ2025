@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwicc4qbhmswe"
+path="res://.godot/imported/player terbunuh musuh.mp3-7f421e5fb993a1dbb96bd84da4046aa7.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player terbunuh musuh.mp3"
+dest_files=["res://.godot/imported/player terbunuh musuh.mp3-7f421e5fb993a1dbb96bd84da4046aa7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

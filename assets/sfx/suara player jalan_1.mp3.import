@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt13mwp04ai43"
+path="res://.godot/imported/suara player jalan_1.mp3-85fba5d9c128ede88f79a4d8509c3b44.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/suara player jalan_1.mp3"
+dest_files=["res://.godot/imported/suara player jalan_1.mp3-85fba5d9c128ede88f79a4d8509c3b44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

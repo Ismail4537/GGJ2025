@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3x38hc42eh4r"
+path="res://.godot/imported/player terhit musuh.mp3-6b18d8a94f749bb5319531344761ab32.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player terhit musuh.mp3"
+dest_files=["res://.godot/imported/player terhit musuh.mp3-6b18d8a94f749bb5319531344761ab32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

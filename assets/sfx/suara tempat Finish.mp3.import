@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvt5axg6yh7os"
+path="res://.godot/imported/suara tempat Finish.mp3-9edbe6cf3bde5e73dc23d06dad697aab.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/suara tempat Finish.mp3"
+dest_files=["res://.godot/imported/suara tempat Finish.mp3-9edbe6cf3bde5e73dc23d06dad697aab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
