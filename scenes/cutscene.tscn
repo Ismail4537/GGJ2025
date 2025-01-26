@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3 uid="uid://bu4baavttw326"]
+
+[ext_resource type="Texture2D" uid="uid://c87q3cit6ymck" path="res://assets/cutscene/GGJ25 cutscene_BG.png" id="1_03r1s"]
+[ext_resource type="Texture2D" uid="uid://b235alrf1flqi" path="res://assets/cutscene/GGJ25 cutscene_1.1.png" id="2_nndey"]
+[ext_resource type="Texture2D" uid="uid://drfasb43u7fwg" path="res://assets/cutscene/GGJ25 cutscene_1.2.png" id="3_o3yso"]
+[ext_resource type="Texture2D" uid="uid://dnshc023r5rqo" path="res://assets/cutscene/GGJ25 cutscene_1.3.png" id="4_kh6fb"]
+[ext_resource type="Texture2D" uid="uid://icl7gpe3hx0e" path="res://assets/cutscene/GGJ25 cutscene_2.1.png" id="5_g27tj"]
+[ext_resource type="Texture2D" uid="uid://vg82cyre4sg5" path="res://assets/cutscene/GGJ25 cutscene_2.2.png" id="6_j3c26"]
+[ext_resource type="Texture2D" uid="uid://d25u3lmaxbupw" path="res://assets/cutscene/GGJ25 cutscene_3.1.png" id="7_74gqo"]
+[ext_resource type="Texture2D" uid="uid://d17to7ijd0qyk" path="res://assets/cutscene/GGJ25 cutscene_3.2.png" id="8_jnxum"]
+[ext_resource type="Texture2D" uid="uid://b4l1g87m0kmd1" path="res://assets/cutscene/GGJ25 cutscene_3.3.png" id="9_llds2"]
+[ext_resource type="Texture2D" uid="uid://gen81op8ilqh" path="res://assets/cutscene/GGJ25 cutscene_4.png" id="10_0jy50"]
+[ext_resource type="Texture2D" uid="uid://bt6k30kxosodd" path="res://assets/cutscene/GGJ25 cutscene_4_1.2.png" id="11_u81wi"]
+[ext_resource type="Texture2D" uid="uid://brl8dpa6n5aqr" path="res://assets/cutscene/GGJ25 cutscene_4_1.1.png" id="12_x2o0i"]
+[ext_resource type="Texture2D" uid="uid://b1yf725c3t8of" path="res://assets/cutscene/GGJ25 cutscene_4_2.3.png" id="13_slsk3"]
+[ext_resource type="Texture2D" uid="uid://cnmvklf6mdet7" path="res://assets/cutscene/GGJ25 cutscene_4_2.1.png" id="14_tveuo"]
+[ext_resource type="Texture2D" uid="uid://b7u4uodydt1lw" path="res://assets/cutscene/GGJ25 cutscene_4_2.2.png" id="15_vwawg"]
+[ext_resource type="Texture2D" uid="uid://ctvjueipuhmhi" path="res://assets/cutscene/GGJ25 cutscene_5.1.png" id="16_i7ku0"]
+[ext_resource type="Texture2D" uid="uid://c87xbjwcgvq2u" path="res://assets/cutscene/GGJ25 cutscene_5.2.png" id="17_564u0"]
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_03r1s")
+
+[node name="Page1" type="AspectRatioContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment_horizontal = 0
+alignment_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="cut1_1" type="TextureRect" parent="Page1"]
+layout_mode = 2
+texture = ExtResource("2_nndey")
+stretch_mode = 4
+
+[node name="cut1_2" type="TextureRect" parent="Page1"]
+layout_mode = 2
+texture = ExtResource("3_o3yso")
+stretch_mode = 4
+
+[node name="cut1_3" type="TextureRect" parent="Page1"]
+layout_mode = 2
+texture = ExtResource("4_kh6fb")
+stretch_mode = 4
+
+[node name="Page2" type="AspectRatioContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cut2_1" type="TextureRect" parent="Page2"]
+layout_mode = 2
+texture = ExtResource("5_g27tj")
+stretch_mode = 4
+
+[node name="cut2_2" type="TextureRect" parent="Page2"]
+layout_mode = 2
+texture = ExtResource("6_j3c26")
+stretch_mode = 4
+
+[node name="Page3" type="AspectRatioContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cut3_1" type="TextureRect" parent="Page3"]
+layout_mode = 2
+texture = ExtResource("7_74gqo")
+stretch_mode = 4
+
+[node name="cut3_2" type="TextureRect" parent="Page3"]
+layout_mode = 2
+texture = ExtResource("8_jnxum")
+stretch_mode = 4
+
+[node name="cut3_3" type="TextureRect" parent="Page3"]
+layout_mode = 2
+texture = ExtResource("9_llds2")
+stretch_mode = 4
+
+[node name="Page4" type="AspectRatioContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cut4_1" type="TextureRect" parent="Page4"]
+layout_mode = 2
+texture = ExtResource("10_0jy50")
+stretch_mode = 4
+
+[node name="cut4_2" type="TextureRect" parent="Page4"]
+layout_mode = 2
+texture = ExtResource("11_u81wi")
+
+[node name="cut4_3" type="TextureRect" parent="Page4"]
+layout_mode = 2
+texture = ExtResource("12_x2o0i")
+
+[node name="cut4_4" type="TextureRect" parent="Page4"]
+layout_mode = 2
+texture = ExtResource("13_slsk3")
+
+[node name="cut4_5" type="TextureRect" parent="Page4"]
+layout_mode = 2
+texture = ExtResource("14_tveuo")
+
+[node name="cut4_6" type="TextureRect" parent="Page4"]
+layout_mode = 2
+texture = ExtResource("15_vwawg")
+
+[node name="Page5" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cut5_1" type="TextureRect" parent="Page5"]
+layout_mode = 2
+texture = ExtResource("16_i7ku0")
+
+[node name="cut5_2" type="TextureRect" parent="Page5"]
+layout_mode = 2
+texture = ExtResource("17_564u0")

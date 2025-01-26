@@ -97,9 +97,7 @@ func shoot():
 			var dir : float = -1 if $AnimatedSprite2D.flip_h == true else 1
 			var new_bullet = BULLET.instantiate()
 			new_bullet.init(dir)
-			new_bullet.global_position = %Muzzle.global_position
-			new_bullet.global_rotation = %Muzzle.global_rotation
-			%Muzzle.add_child(new_bullet)
+			add_child(new_bullet)
 		shootCooldown.start()
 
 func addBuble():
