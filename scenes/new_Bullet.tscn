@@ -13,9 +13,10 @@ script = ExtResource("1_dp5ev")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sb1kp")
 
-[node name="Bullet_Area" type="Area2D" parent="."]
+[node name="Bullet_Area" type="Area2D" parent="." groups=["Bullet"]]
+top_level = true
 collision_layer = 8
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet_Area"]
 position = Vector2(-20, 0)

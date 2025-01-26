@@ -7,9 +7,7 @@
 size = Vector2(128, 126)
 
 [node name="Enemy" type="CharacterBody2D"]
-visible = false
 z_index = 4
-position = Vector2(1666, 628)
 collision_layer = 4
 collision_mask = 59
 script = ExtResource("1_pbuld")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdm7w5pkj1b6u"
-path="res://.godot/imported/Untitled.png-c8a1d585888d30992e61cf004f4bbbff.ctex"
+uid="uid://l5ac2bb4f3i6"
+path="res://.godot/imported/GGJ25 asset_bridge.png-1adfbdff6fa1de447286b12020c18ea8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Untitled.png"
-dest_files=["res://.godot/imported/Untitled.png-c8a1d585888d30992e61cf004f4bbbff.ctex"]
+source_file="res://assets/GGJ25 asset_bridge.png"
+dest_files=["res://.godot/imported/GGJ25 asset_bridge.png-1adfbdff6fa1de447286b12020c18ea8.ctex"]
 
 [params]
 

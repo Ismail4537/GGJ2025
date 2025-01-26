@@ -30,9 +30,10 @@ func _physics_process(delta: float) -> void:
 		knocked = false
 	var colide = detectBubble.get_collider()
 	if colide != null :
-		if is_on_floor() and colide.is_in_group("ground"):
-			isOnGround = true
-			bubbleCount = 0
+		if is_on_floor():
+			if colide.is_in_group("ground"):
+				isOnGround = true
+				bubbleCount = 0
 		else :
 			isOnGround = false
 	var ceiling = detectCeiling.get_collider()
@@ -89,15 +90,17 @@ func _on_timer_timeout() -> void:
 		bubbleCount += 1
 
 func shoot():
-	print("shoot")
 	if isReady :
 		isReady = false
-		const BULLET = preload("res://scenes/new_Bullet.tscn")
+		const BULLET = preload("res://scenes/bullet.tscn")
 		if (BULLET != null):
 			var dir : float = -1 if $AnimatedSprite2D.flip_h == true else 1
 			var new_bullet = BULLET.instantiate()
-			new_bullet.init(dir)
-			add_child(new_bullet)
+			new_bullet.position.x = %Muzzle.global_position.x
+			new_bullet.position.y = %Muzzle.global_position.y
+			new_bullet.rotation = %Muzzle.global_rotation
+			new_bullet.setDir(dir)
+			%Muzzle.add_child(new_bullet)
 		shootCooldown.start()
 
 func addBuble():

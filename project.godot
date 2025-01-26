@@ -14,7 +14,6 @@ config/name="GGJ2025"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
-run/main_scene="res://scenes/main_menu.tscn"
 
 [display]
 
