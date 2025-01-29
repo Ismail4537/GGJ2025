@@ -1,0 +1,148 @@
+[gd_scene load_steps=18 format=3 uid="uid://f2uti54ha31k"]
+
+[ext_resource type="Script" path="res://scenes/class/enemy.gd" id="1_u1fe3"]
+[ext_resource type="Texture2D" uid="uid://dycvk3t7cxaj" path="res://assets/Jamaludin/Walk/GGJ25 jamaludin w1.png" id="2_2me02"]
+[ext_resource type="Texture2D" uid="uid://b6s1klba0j3wn" path="res://assets/Jamaludin/Die/GGJ25 jamaludin d1.png" id="2_18e1j"]
+[ext_resource type="Texture2D" uid="uid://qxj02aifiqed" path="res://assets/Jamaludin/Walk/GGJ25 jamaludin w2.png" id="3_bn7bh"]
+[ext_resource type="Texture2D" uid="uid://cuv35gfm5pwcf" path="res://assets/Jamaludin/Die/GGJ25 jamaludin d2.png" id="3_lciqj"]
+[ext_resource type="Texture2D" uid="uid://bmmc08r6qljtd" path="res://assets/Jamaludin/Walk/GGJ25 jamaludin w3.png" id="4_2e5r3"]
+[ext_resource type="Texture2D" uid="uid://bbqigqtcsrd07" path="res://assets/Jamaludin/Die/GGJ25 jamaludin d3.png" id="4_a48xv"]
+[ext_resource type="Texture2D" uid="uid://bo5uibxjeo27e" path="res://assets/Jamaludin/Die/GGJ25 jamaludin d4.png" id="5_p4242"]
+[ext_resource type="Texture2D" uid="uid://dbx0qw2iaqqhr" path="res://assets/Jamaludin/Walk/GGJ25 jamaludin w4.png" id="5_yymo1"]
+[ext_resource type="Texture2D" uid="uid://dt6vls2qhyoiu" path="res://assets/Jamaludin/Die/GGJ25 jamaludin d5.png" id="6_baotu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqovb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_18e1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lciqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a48xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p4242")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_baotu")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2me02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bn7bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2e5r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yymo1")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_8qcbs"]
+resource_name = "Flash"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.470588)]
+}
+
+[sub_resource type="Animation" id="Animation_mkq12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkxqs"]
+_data = {
+"Flash": SubResource("Animation_8qcbs"),
+"RESET": SubResource("Animation_mkq12")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tashf"]
+radius = 68.4044
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1j8rg"]
+radius = 70.2703
+height = 189.189
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dinx2"]
+radius = 72.973
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(0.37, 0.37)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_u1fe3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xqovb")
+animation = &"Die"
+autoplay = "walking"
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_hkxqs")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 11.1892)
+shape = SubResource("CircleShape2D_tashf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-70.2703, 2.7027)
+target_position = Vector2(0, 83.7838)
+collision_mask = 2
+
+[node name="HitBox" type="Area2D" parent="." groups=["Enemy", "HitBox"]]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-5.40541, 8.10811)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1j8rg")
+debug_color = Color(0.999117, 0, 0.123094, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="." groups=["Enemy", "HurtBox"]]
+collision_layer = 4
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-8.10811, 10.8108)
+shape = SubResource("CircleShape2D_dinx2")
+debug_color = Color(0.847449, 0.375901, 0, 0.42)
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

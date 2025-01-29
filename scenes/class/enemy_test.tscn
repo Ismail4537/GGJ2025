@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://rh4dwjcl3dvi"]
+
+[ext_resource type="Script" path="res://scenes/class/coba_musuh.gd" id="1_pbuld"]
+[ext_resource type="Texture2D" uid="uid://cvnchg8dfmydf" path="res://icon.svg" id="2_pnkep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vocer"]
+size = Vector2(128, 126)
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 4
+collision_layer = 4
+collision_mask = 59
+script = ExtResource("1_pbuld")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pnkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vocer")
+debug_color = Color(1, 0.0843873, 0.376137, 0.42)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-65, 0)
+target_position = Vector2(0, 70)
