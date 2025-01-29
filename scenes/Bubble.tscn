@@ -1,10 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://csc6ydrrte1m8"]
+[gd_scene load_steps=8 format=3 uid="uid://csc6ydrrte1m8"]
 
-[ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_af8wq"]
+[ext_resource type="Script" path="res://scenes/bubble.gd" id="1_af8wq"]
 [ext_resource type="Texture2D" uid="uid://ex5mx7olems" path="res://assets/bubble/GGJ25 stack.png" id="2_ytiqe"]
+[ext_resource type="Texture2D" uid="uid://c4aob2rlmnft0" path="res://assets/bubble/GGJ25 stack2.png" id="3_yv2lb"]
+[ext_resource type="Texture2D" uid="uid://beu5fitsbwds3" path="res://assets/bubble/GGJ25 stack3.png" id="4_mf73x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24k3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ytiqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yv2lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mf73x")
+}],
+"loop": false,
+"name": &"Pop",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ytiqe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djk7t"]
-size = Vector2(40, 40.6667)
+size = Vector2(40, 40.1667)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqw2c"]
+radius = 60.0
 
 [node name="Bubble" type="RigidBody2D" groups=["bubble"]]
 top_level = true
@@ -14,12 +44,28 @@ can_sleep = false
 lock_rotation = true
 script = ExtResource("1_af8wq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.686275)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_ytiqe")
+sprite_frames = SubResource("SpriteFrames_24k3j")
+animation = &"Pop"
+autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bubble"]]
-position = Vector2(9.53674e-07, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.25)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_djk7t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="HurtBox" type="Area2D" parent="." groups=["bubble"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_aqw2c")
+debug_color = Color(0.860587, 0.36163, 0, 0.42)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

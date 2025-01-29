@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1pkme5sa3jrv"]
+
+[ext_resource type="Script" path="res://scenes/class/enemy_float.gd" id="1_q86u6"]
+[ext_resource type="Texture2D" uid="uid://cvnchg8dfmydf" path="res://icon.svg" id="2_ub1uw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83n3p"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es4nv"]
+size = Vector2(128, 128)
+
+[node name="EnemyFloat" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(0.37, 0.37)
+collision_layer = 4
+collision_mask = 49
+script = ExtResource("1_q86u6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ub1uw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_83n3p")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_es4nv")
+debug_color = Color(0.999117, 0, 0.123094, 0.42)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

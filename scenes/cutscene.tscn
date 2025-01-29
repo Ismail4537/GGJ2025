@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://bu4baavttw326"]
 
 [ext_resource type="Texture2D" uid="uid://c87q3cit6ymck" path="res://assets/cutscene/GGJ25 cutscene_BG.png" id="1_03r1s"]
-[ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_s5pbf"]
+[ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_s5pbf"]
 [ext_resource type="Texture2D" uid="uid://b235alrf1flqi" path="res://assets/cutscene/GGJ25 cutscene_1.1.png" id="2_nndey"]
 [ext_resource type="Texture2D" uid="uid://drfasb43u7fwg" path="res://assets/cutscene/GGJ25 cutscene_1.2.png" id="3_o3yso"]
 [ext_resource type="Texture2D" uid="uid://dnshc023r5rqo" path="res://assets/cutscene/GGJ25 cutscene_1.3.png" id="4_kh6fb"]
@@ -926,10 +926,12 @@ layout_mode = 2
 texture = ExtResource("13_slsk3")
 
 [node name="cut4_5" type="TextureRect" parent="Page4"]
+visible = false
 layout_mode = 2
 texture = ExtResource("14_tveuo")
 
 [node name="cut4_6" type="TextureRect" parent="Page4"]
+visible = false
 layout_mode = 2
 texture = ExtResource("15_vwawg")
 
@@ -951,23 +953,14 @@ layout_mode = 2
 texture = ExtResource("17_564u0")
 stretch_mode = 4
 
-[node name="ContinueButton" type="Button" parent="."]
-visible = false
-custom_minimum_size = Vector2(300, 90)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -420.0
-offset_top = -180.0
-offset_right = -180.0
-offset_bottom = -110.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 36
-text = "Continue"
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1686.0
+offset_top = 1039.0
+offset_right = 1902.0
+offset_bottom = 1062.0
+text = "Press ESC to skip cutscene...
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -982,5 +975,3 @@ parameters/looping = true
 [node name="ChangePage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_xksog")
 volume_db = 10.0
-
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
